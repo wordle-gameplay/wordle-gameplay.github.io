@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terms of Service - Wordle</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .terms-container {
+      max-width: 800px;
+      margin: 60px auto 20px;
+      padding: 20px;
+      background: #fafafa;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .terms-container h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .terms-container h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 30px;
+    }
+
+    .terms-container p, .terms-container ul {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    .terms-container ul {
+      padding-left: 20px;
+    }
+
+    .terms-container ul li {
+      margin-bottom: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #538d4e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Тёмная тема */
+    body.dark .terms-container {
+      background: #1f1f1f;
+      color: #cccccc;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    body.dark .terms-container p,
+    body.dark .terms-container ul li {
+      color: #cccccc;
+    }
+  </style>
+</head>
+
+<body class="" onload="if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}">
+  <div class="terms-container">
+    <a href="index.html" class="back-link">← Back</a>
+    <h1>Terms of Service</h1>
+    <p><strong>Effective Date:</strong> 26.04.2025</p>
+
+    <h3>1. Acceptance of Terms</h3>
+    <p>By accessing or using Wordle, you agree to be legally bound by these Terms of Service. If you do not accept or understand any part of these terms, you should refrain from using the application. Continued use of the platform implies your agreement with the most current version of these terms.</p>
+
+    <h3>2. Purpose of the Application</h3>
+    <p>Wordle is an online tool designed to help users improve their word-guessing skills, memory, and logical thinking through interactive gameplay. The platform is free to use and accessible without registration. Wordle is intended for personal, educational, and non-commercial use only.</p>
+    <p>You may not use this service for any unlawful or unauthorized purposes, including but not limited to:</p>
+    <ul>
+      <li>Hacking, scraping, or tampering with the code;</li>
+      <li>Hosting the application elsewhere without permission;</li>
+      <li>Reproducing or distributing its interface, structure, or logic;</li>
+    </ul>
+
+    <h3>3. Content and Ownership</h3>
+    <p>All text, visual design, layout, icons, and custom code on Wordle are intellectual property of the developer, unless explicitly noted otherwise. You may not copy, distribute, mirror, or reuse content from this platform without prior written consent.</p>
+    <p>Open-source libraries or wordlists used within the project are attributed where appropriate and follow their respective licenses.</p>
+
+    <h3>4. User Data and Privacy</h3>
+    <p>Wordle does not require users to log in or provide any personal information. The app runs fully in the browser and does not send gameplay results or interaction data to any external servers. You can read our full Privacy Policy for more details.</p>
+    <p>If ads or analytics tools are added in the future, we will clearly notify users and provide options to opt out where possible.</p>
+
+    <h3>5. Availability and Changes</h3>
+    <p>We strive to maintain Wordle as a stable and accessible tool, but we reserve the right to modify, pause, or remove any features at any time without prior notice. Updates or downtimes may occur to improve performance or fix bugs.</p>
+    <p>We may also update these Terms of Service at any time. Changes will be posted directly on this page. Continued use of the service constitutes acceptance of any modified terms.</p>
+
+    <h3>6. Limitation of Liability</h3>
+    <p>Wordle is provided “as is” without warranties of any kind — express or implied. While we do our best to ensure a smooth and secure experience, we are not liable for:</p>
+    <ul>
+      <li>Any loss of performance, data, or game results;</li>
+      <li>Browser or device incompatibility;</li>
+      <li>Technical issues or service interruptions;</li>
+      <li>Errors in wordlists or gameplay.</li>
+    </ul>
+    <p>Use of Wordle is at your own risk.</p>
+
+    <h3>7. Contact</h3>
+    <p>If you have any questions, suggestions, or feedback regarding these Terms of Service or the platform in general, you can contact the developer at: <a href="mailto:amtubedg@gmail.com">amtubedg@gmail.com</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Policy - Wordle</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .terms-container {
+      max-width: 800px;
+      margin: 60px auto 20px;
+      padding: 20px;
+      background: #fafafa;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .terms-container h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .terms-container h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 30px;
+    }
+
+    .terms-container p, .terms-container ul {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    .terms-container ul {
+      padding-left: 20px;
+    }
+
+    .terms-container ul li {
+      margin-bottom: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #538d4e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Тёмная тема */
+    body.dark .terms-container {
+      background: #1f1f1f;
+      color: #cccccc;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    body.dark .terms-container p,
+    body.dark .terms-container ul li {
+      color: #cccccc;
+    }
+  </style>
+</head>
+
+<body class="" onload="if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}">
+  <div class="terms-container">
+    <a href="index.html" class="back-link">← Back</a>
+    <h1>Security Policy</h1>
+    <p><strong>Effective Date:</strong> 26.04.2025</p>
+
+    <h3>Data Protection</h3>
+    <p>Wordle is designed to operate fully within your browser without transmitting any data externally. All word guesses, results, and interactions occur locally on your device and are not sent to any servers. This approach ensures that your activities remain private and protected from unauthorized access.</p>
+
+    <p>We do not request personal information, create user profiles, or link usage data to identifiable individuals. Your experience remains entirely under your control, without hidden data collection.</p>
+
+    <h3>Third-Party Services</h3>
+    <p>At present, Wordle does not incorporate any third-party analytics, authentication systems, or cloud-based services. We aim to minimize dependencies on external providers to maintain a lightweight, privacy-respecting platform.</p>
+
+    <p>In the future, if any external services (such as ad providers) are introduced, clear information will be provided along with options to control data sharing preferences.</p>
+
+    <h3>Application Security</h3>
+    <p>Although Wordle operates purely client-side, we take proactive steps to protect against potential vulnerabilities:</p>
+    <ul>
+      <li>All assets (code, images, libraries) are served over secure HTTPS connections.</li>
+      <li>Regular code reviews are conducted to detect and patch security flaws.</li>
+      <li>Dependencies are updated periodically to address known vulnerabilities.</li>
+      <li>Open-source libraries used within the platform are chosen carefully based on their security reputation.</li>
+    </ul>
+
+    <p>While absolute security cannot be guaranteed, we are committed to maintaining a safe and trustworthy environment.</p>
+
+    <h3>Vulnerability Disclosure</h3>
+    <p>We highly value security researchers and the responsible disclosure of vulnerabilities. If you discover a potential issue affecting Wordle, we encourage you to report it responsibly.</p>
+
+    <p>Please contact us at <a href="mailto:amtubedg@gmail.com">amtubedg@gmail.com</a> with detailed information about the vulnerability. We will prioritize investigation and remediation of legitimate reports and appreciate your efforts in keeping Wordle secure.</p>
+
+    <h3>Continuous Improvement</h3>
+    <p>Security is an ongoing process. We are committed to continuously improving Wordle by:</p>
+    <ul>
+      <li>Monitoring emerging security threats,</li>
+      <li>Updating libraries and code practices,</li>
+      <li>Implementing user feedback regarding safety and usability.</li>
+    </ul>
+
+    <p>Your trust is important to us, and we take our responsibility seriously.</p>
+  </div>
+</body>
+</html>

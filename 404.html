@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Page Not Found | Wordle</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .error-container {
+      max-width: 600px;
+      padding: 40px;
+      background: #fafafa;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-container h1 {
+      font-size: 72px;
+      margin: 0 0 20px;
+      font-weight: 900;
+    }
+
+    .error-container h2 {
+      font-size: 28px;
+      margin: 0 0 20px;
+      font-weight: 700;
+    }
+
+    .error-container p {
+      font-size: 18px;
+      color: #555555;
+      margin-bottom: 30px;
+    }
+
+    .home-link {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #538d4e;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-link:hover {
+      background-color: #6aaa64;
+    }
+
+    /* Тёмная тема */
+    body.dark .error-container {
+      background: #1f1f1f;
+      color: #cccccc;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    body.dark .error-container p {
+      color: #cccccc;
+    }
+  </style>
+</head>
+
+<body class="" onload="if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}">
+  <div class="error-container">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>Sorry, the page you are looking for doesn't exist or has been moved.</p>
+    <a href="index.html" class="home-link">← Return to Home</a>
+  </div>
+</body>
+</html>

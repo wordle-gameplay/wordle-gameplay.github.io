@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wordle Game - Guess the Word</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/png" href="media/favicon.png">
+  <link rel="apple-touch-icon" href="media/favicon.png">
+  <link rel="shortcut icon" href="media/favicon.png" type="image/png">
+</head>
+<body>
+  <div class="top-bar">
+    <div class="title-word">
+      <div class="title-tile w">W</div>
+      <div class="title-tile o">O</div>
+      <div class="title-tile r">R</div>
+      <div class="title-tile d">D</div>
+      <div class="title-tile l">L</div>
+      <div class="title-tile e">E</div>
+    </div>
+  </div>
+  
+  <div class="game-container">
+    <div id="top-left-controls">
+      <button id="language-btn" class="icon-btn lang-btn" aria-label="Language">🇺🇸 EN</button>
+
+      <button id="restart-btn" class="icon-btn" aria-label="Restart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M13 9v2h7V4h-2v2.74C16.53 5.07 14.4 4 12 4c-2.21 0-4.21.9-5.66 2.34S4 9.79 4 12c0 4.42 3.58 8 8 8 2.21 0 4.21-.9 5.66-2.34l-1.42-1.42C15.15 17.33 13.65 18 12 18c-3.31 0-6-2.69-6-6 0-1.65.67-3.15 1.76-4.24C8.85 6.67 10.35 6 12 6c2.21 0 4.15 1.21 5.19 3H13z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="top-controls">
+      <button id="stats-btn" class="icon-btn" aria-label="Stats">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+      </button>
+
+      <button id="info-btn" class="icon-btn" aria-label="How to Play">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+          </path>
+        </svg>
+      </button>
+
+
+      <button id="settings-btn" class="icon-btn" aria-label="Settings">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+          </path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+      </button>
+    </div>
+  
+    <div id="game-board"></div>
+    <div id="keyboard"></div>
+  </div>
+
+  <div class="info-panel">
+    <h2>Wordle Game: Guess the Hidden Word</h2>
+    <p>
+      Guess the hidden word! You have six tries to find a secret word between 3 and 8 letters long.
+      Start by typing any word.
+      Letters that are correct and in the right spot turn green.
+      Letters in the word but in the wrong place turn yellow.
+      Letters not in the word stay gray.
+      Can you solve it in 6 tries?
+    </p>
+  </div>
+
+  <section id="how-to-play">
+    <h2>How to Play</h2>
+  
+    <div class="how-step">
+      <div class="step-number">1</div>
+      <h3>Enter Any Word</h3>
+      <p>Start by typing any 3–8 letter word. Each letter will show a color hint if it matches or not.</p>
+      <img src="media/step1.jpg" alt="Step 1 - Enter Word" class="how-image">
+    </div>
+  
+    <div class="how-step">
+      <div class="step-number">2</div>
+      <h3>Use Color Hints</h3>
+      <p>Green: correct letter and correct position. Yellow: correct letter, wrong place. Gray: not in the word.</p>
+      <img src="media/step2.jpg" alt="Step 2 - Color Hints" class="how-image">
+    </div>
+  
+    <div class="how-step">
+      <div class="step-number">3</div>
+      <h3>Guess the Word!</h3>
+      <p>You have six tries to guess the hidden word using the hints. Good luck!</p>
+      <img src="media/step3.jpg" alt="Step 3 - Guess the Word" class="how-image">
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+  
+    <div class="faq-item">
+      <button class="faq-question">What are the rules of the Wordle game?</button>
+      <div class="faq-answer">
+        <p>The main goal is to guess the hidden word in 6 tries. Each word is between 3 to 8 letters long.</p>
+        <p><strong>Color marking:</strong></p>
+        <ul>
+          <li>
+            <span class="tile absent"></span>
+            <span class="faq-text">The letter isn't in the target word at all.</span>
+          </li>
+          <li>
+            <span class="tile present"></span>
+            <span class="faq-text">The letter is in the word but in the wrong position.</span>
+          </li>
+          <li>
+            <span class="tile correct"></span>
+            <span class="faq-text">The letter is in the word and in the correct position.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <button class="faq-question">What is the best word to start the game?</button>
+      <div class="faq-answer">
+        <p>There is no perfect starting word, but try a word with common vowels and consonants to get the best start.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <button class="faq-question">Can I play with different word lengths?</button>
+      <div class="faq-answer">
+        <p>Yes! In the settings you can select from 3 to 8 letter words.</p>
+      </div>
+    </div>
+  
+  </section>
+
+  <footer class="footer-bar">
+    <a href="mailto:amtubedg@gmail.com" class="footer-link">Contact</a>
+    <!-- <span class="dot-divider">•</span> -->
+    <!-- <a href="support.html" class="footer-link">Support</a> -->
+    <span class="dot-divider">•</span>
+    <a href="terms.html" class="footer-link">Terms</a>
+    <span class="dot-divider">•</span>
+    <a href="security.html" class="footer-link">Security</a>
+    <span class="dot-divider">•</span>
+    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+  </footer>
+
+  <div class="footer-bottom">
+    <p>© <span id="current-year"></span> Wordle. All rights reserved.</p>
+  </div>
+
+  <!-- Всплывающее сообщение -->
+  <div id="message-popup">Word not found</div>
+
+  <!-- Модальное окно настроек -->
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-content styled">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button id="close-settings" class="close-btn">×</button>
+      </div>
+
+      <div class="section">
+        <h4>Number of Letters</h4>
+        <div class="word-length-buttons">
+          <button class="length-btn">3</button>
+          <button class="length-btn">4</button>
+          <button class="length-btn active">5</button>
+          <button class="length-btn">6</button>
+          <button class="length-btn">7</button>
+          <button class="length-btn">8</button>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section toggle-option">
+        <span>Dark Mode</span>
+        <label class="switch">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section toggle-option">
+        <span>Color Blind Mode</span>
+        <label class="switch">
+          <input type="checkbox" id="color-blind-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section toggle-option">
+        <span>Swap Enter / Backspace</span>
+        <label class="switch">
+          <input type="checkbox" id="swap-keys-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section toggle-option">
+        <span>Confetti Animation</span>
+        <label class="switch">
+          <input type="checkbox" id="confetti-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно завершения игры -->
+  <div id="endgame-modal" class="modal hidden">
+    <div class="modal-content styled center">
+      <div class="modal-header">
+        <h2 id="endgame-title">You Lost!</h2>
+        <button class="close-btn" id="close-endgame">×</button>
+      </div>
+
+      <p>The answer was:</p>
+      <div id="endgame-word" class="word-box">LODGE</div>
+
+      <a href="#" id="word-meaning-link" target="_blank" class="word-meaning">What does this word mean?</a>
+
+      <!-- Уникальный id! -->
+      <button id="new-game-modal-btn">NEW GAME</button>
+      <p class="hint-text">or press Enter to play again</p>
+    </div>
+  </div>
+
+  <!-- Модальное окно как играть -->
+  <div id="howto-modal" class="modal hidden">
+    <div class="modal-content styled">
+      <div class="modal-header">
+        <h2>How to Play</h2>
+        <button id="close-howto" class="close-btn">×</button>
+      </div>
+      <div class="howto-body">
+        <p>Guess the word in 6 tries. Each guess must be a valid word.</p>
+        <p>After each guess, the color of the tiles will change to show how close your guess was to the word:</p>
+        <ul>
+          <li><strong class="correct">Green</strong>: correct letter and position</li>
+          <li><strong class="present">Yellow</strong>: letter in word but wrong position</li>
+          <li><strong class="absent">Gray</strong>: letter not in the word</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно языка -->
+  <div id="language-modal" class="modal hidden">
+    <div class="modal-content styled">
+      <div class="modal-header">
+        <h2>Select Language</h2>
+        <button id="close-language-modal" class="close-btn">×</button>
+      </div>
+      <div class="language-grid">
+        <button class="lang-option active">🇺🇸 English (US)</button>
+        <!-- <button class="lang-option">🇬🇧 English (UK)</button>
+        <button class="lang-option">🇪🇸 Español</button>
+        <button class="lang-option">🇫🇷 Français</button>
+        <button class="lang-option">🇩🇪 Deutsch</button>
+        <button class="lang-option">🇵🇹 Português</button>
+        <button class="lang-option">🇮🇹 Italiano</button>
+        <button class="lang-option">🇳🇱 Nederlands</button>
+        <button class="lang-option">🇷🇺 Русский</button>
+        <button class="lang-option">🇵🇱 Polski</button>
+        <button class="lang-option">🇺🇦 Українська</button>
+        <button class="lang-option">🇬🇷 Ελληνικά</button> -->
+        <!-- Остальные: coming soon -->
+        <button class="lang-option disabled" disabled>🇬🇧 English (UK) <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇪🇸 Español <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇫🇷 Français <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇩🇪 Deutsch <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇵🇹 Português <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇮🇹 Italiano <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇳🇱 Nederlands <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇷🇺 Русский <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇵🇱 Polski <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇺🇦 Українська <span class="coming-soon">— coming soon</span></button>
+        <button class="lang-option disabled" disabled>🇬🇷 Ελληνικά <span class="coming-soon">— coming soon</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно статистики -->
+  <div id="stats-modal" class="modal hidden">
+    <div class="modal-content styled center">
+      <div class="modal-header">
+        <h2>Statistics</h2>
+        <button class="close-btn" id="close-stats">×</button>
+      </div>
+      <div id="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-label">Games Played</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-wins">0</div>
+          <div class="stat-label">Games Won</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-rate">0%</div>
+          <div class="stat-label">% of Wins</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-best">#0</div>
+          <div class="stat-label">Best Try</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-streak">0</div>
+          <div class="stat-label">Current Streak</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-maxstreak">0</div>
+          <div class="stat-label">Max Streak</div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button id="reset-stats-btn" class="reset-stats-btn">Reset Stats</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипты -->
+  <!-- <script src="words.js"></script> -->
+  <script src="words_by_length.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>

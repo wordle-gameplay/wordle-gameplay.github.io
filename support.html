@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Support - Wordle</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .terms-container {
+      max-width: 800px;
+      margin: 60px auto 20px;
+      padding: 20px;
+      background: #fafafa;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .terms-container h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .terms-container p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .donate-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #538d4e;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .donate-button:hover {
+      background-color: #6aaa64;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #538d4e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    body.dark .terms-container {
+      background: #1f1f1f;
+      color: #cccccc;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    body.dark .terms-container p {
+      color: #cccccc;
+    }
+  </style>
+</head>
+
+<body class="" onload="if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark')}">
+  <div class="terms-container">
+    <a href="index.html" class="back-link">← Back</a>
+    <h1>Support Wordle</h1>
+    <p>If you enjoy playing Wordle and want to support the development and hosting of the platform, you can donate below. Thank you for your support!</p>
+
+    <a href="https://www.paypal.com/paypalme/ВАШ_АККАУНТ" target="_blank" class="donate-button">Donate via PayPal</a>
+
+    <!-- Можешь поставить сюда любую ссылку вместо PayPal -->
+  </div>
+</body>
+</html>
